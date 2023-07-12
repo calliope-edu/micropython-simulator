@@ -1,4 +1,4 @@
-import svgText from "../microbit-drawing.svg";
+import svgText from "../calliope-drawing.svg";
 import { Accelerometer } from "./accelerometer";
 import { Audio } from "./audio";
 import { Button } from "./buttons";
