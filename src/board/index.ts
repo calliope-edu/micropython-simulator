@@ -156,7 +156,7 @@ export class Board {
     private svg: SVGElement
   ) {
     this.display = new Display(
-      Array.from(this.svg.querySelector("#LEDsOn")!.querySelectorAll("use"))
+      Array.from(this.svg.querySelector("#LEDs")!.querySelectorAll("rect"))
     );
     const onChange = this.notifications.onStateChange;
     this.buttons = [
