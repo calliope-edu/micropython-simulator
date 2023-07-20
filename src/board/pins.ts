@@ -65,7 +65,7 @@ export class TouchPin extends BasePin {
   private mouseLeaveListener: (e: MouseEvent) => void;
 
   constructor(
-    private id: "pin0" | "pin1" | "pin2" | "pinLogo",
+    private id: "pin0" | "pin1" | "pin2" | "pin3" | "pinLogo",
     private ui: { element: SVGElement; label: () => string } | null,
     private onChange: (changes: Partial<State>) => void
   ) {
