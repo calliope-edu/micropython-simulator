@@ -1,4 +1,4 @@
-import svgText from "../calliope-drawing.svg";
+import svgText from "../CM_V3_Platine_plain.svg";
 import { Accelerometer } from "./accelerometer";
 import { Audio } from "./audio";
 import { Button } from "./buttons";
@@ -156,19 +156,19 @@ export class Board {
     private svg: SVGElement
   ) {
     this.display = new Display(
-      Array.from(this.svg.querySelector("#LEDs")!.querySelectorAll("rect"))
+      Array.from(this.svg.querySelector("#LED-Matrix")!.querySelectorAll("use"))
     );
     const onChange = this.notifications.onStateChange;
     this.buttons = [
       new Button(
         "buttonA",
-        this.svg.querySelector("#ButtonA")!,
+        this.svg.querySelector("#Taste_A")!,
         () => this.formattedMessage({ id: "button-a" }),
         onChange
       ),
       new Button(
         "buttonB",
-        this.svg.querySelector("#ButtonB")!,
+        this.svg.querySelector("#Taste_B")!,
         () => this.formattedMessage({ id: "button-b" }),
         onChange
       ),

@@ -242,6 +242,7 @@
         .st4{fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;}
         .st5{fill:none;stroke:#FFFFFF;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:10;}
         .white_outline{fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;}
+        .red_outline{fill:none;stroke:#ff3333;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
         .st7{fill:none;stroke:#FFFFFF;stroke-width:0.6;stroke-miterlimit:10;}
         .st8{fill:none;stroke:#FFFFFF;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;}
         .st9{fill:none;stroke:#FFFFFF;stroke-width:0.6;stroke-linecap:round;stroke-linejoin:round;}
@@ -353,6 +354,15 @@
                   d="m 361,199.7 v 0 c 2.8,0 5.1,2.3 5.1,5.1 v 4.8 c 0,2.8 -2.3,5.1 -5.1,5.1 v 0 c -2.8,0 -5.1,-2.3 -5.1,-5.1 v -4.8 c 0,-2.8 2.3,-5.1 5.1,-5.1 z"
                   id="path592"/>
             <line class="st7" x1="355.70001" y1="207.2" x2="366.29999" y2="207.2" id="line594"/>
+        </g>
+        <g id="LitMicrophone" display="none">
+            <line class="red_outline" x1="360.70001" y1="219.10001" x2="360.70001" y2="222.39999" id="line588"/>
+            <path class="red_outline"
+                  d="m 368.8,207 v 3 c 0,4.3 -3.5,7.8 -7.8,7.9 v 0 c -4.3,0 -7.9,-3.5 -7.9,-7.9 v -3" id="path590"/>
+            <path class="red_outline"
+                  d="m 361,199.7 v 0 c 2.8,0 5.1,2.3 5.1,5.1 v 4.8 c 0,2.8 -2.3,5.1 -5.1,5.1 v 0 c -2.8,0 -5.1,-2.3 -5.1,-5.1 v -4.8 c 0,-2.8 2.3,-5.1 5.1,-5.1 z"
+                  id="path592"/>
+            <line class="red_outline" x1="355.70001" y1="207.2" x2="366.29999" y2="207.2" id="line594"/>
         </g>
         <g id="cable_usb-2">
             <path id="cable-2" class="st4"
