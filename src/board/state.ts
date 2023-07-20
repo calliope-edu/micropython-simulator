@@ -27,6 +27,7 @@ export interface State {
   pin0: RangeSensor;
   pin1: RangeSensor;
   pin2: RangeSensor;
+  pin3: RangeSensor;
   pinLogo: RangeSensor;
 
   temperature: RangeSensor;

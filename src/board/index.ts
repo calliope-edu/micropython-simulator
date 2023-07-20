@@ -156,7 +156,7 @@ export class Board {
     private svg: SVGElement
   ) {
     this.display = new Display(
-      Array.from(this.svg.querySelector("#LED-Matrix")!.querySelectorAll("use"))
+      Array.from(this.svg.querySelector("#LED-Matrix")!.querySelectorAll("rect"))
     );
     const onChange = this.notifications.onStateChange;
     this.buttons = [
@@ -185,7 +185,7 @@ export class Board {
     this.pins[MICROBIT_HAL_PIN_P0] = new TouchPin("pin0", null, onChange);
     this.pins[MICROBIT_HAL_PIN_P1] = new TouchPin("pin1", null, onChange);
     this.pins[MICROBIT_HAL_PIN_P2] = new TouchPin("pin2", null, onChange);
-    this.pins[MICROBIT_HAL_PIN_P3] = new StubPin("pin3");
+    this.pins[MICROBIT_HAL_PIN_P3] = new TouchPin("pin3", null, onChange);
     this.pins[MICROBIT_HAL_PIN_P4] = new StubPin("pin4");
     this.pins[MICROBIT_HAL_PIN_P5] = new StubPin("pin5");
     this.pins[MICROBIT_HAL_PIN_P6] = new StubPin("pin6");
@@ -285,6 +285,7 @@ export class Board {
       pin0: this.pins[MICROBIT_HAL_PIN_P0].state,
       pin1: this.pins[MICROBIT_HAL_PIN_P1].state,
       pin2: this.pins[MICROBIT_HAL_PIN_P2].state,
+      pin3: this.pins[MICROBIT_HAL_PIN_P3].state,
 
       accelerometerX: this.accelerometer.state.accelerometerX,
       accelerometerY: this.accelerometer.state.accelerometerY,
@@ -341,6 +342,10 @@ export class Board {
       }
       case "pin2": {
         this.pins[MICROBIT_HAL_PIN_P2].setValue(value);
+        break;
+      }
+      case "pin3": {
+        this.pins[MICROBIT_HAL_PIN_P3].setValue(value);
         break;
       }
       case "lightLevel": {
