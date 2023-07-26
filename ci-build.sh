@@ -3,7 +3,7 @@ set -euxo pipefail
 
 # Submodules
 git submodule update --init lib/micropython-microbit-v2
-(cd lib/micropython-microbit-v2 && git submodule update --init lib/micropython)
+git -C lib/micropython-microbit-v2 submodule update --init lib/micropython
 
 # Emscripten
 VERSION="3.1.25"
