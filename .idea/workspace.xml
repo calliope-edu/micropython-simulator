@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f064d592-9104-410b-bed4-96e1caf995f0" name="Changes" comment="Test deployment">
+      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$/lib/micropython-microbit-v2" value="95f1c487ace0ea2c63ae00bade5c77aaecbccb52" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2Pp6hJwNsZ0iuYcVBvY78N3jmYm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature/test-deployment",
+    "last_opened_file_path": "/Users/michael/development/lulububu/calliope/micropython-simulator/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/michael/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/231.9225.18/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f064d592-9104-410b-bed4-96e1caf995f0" name="Changes" comment="" />
+      <created>1684141793341</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684141793341</updated>
+      <workItem from="1684141794594" duration="2592000" />
+    </task>
+    <task id="LOCAL-00001" summary="Ignore idea editor settings folder">
+      <option name="closed" value="true" />
+      <created>1689155308493</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689155308493</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Replace board image with the calliope mini drawing">
+      <option name="closed" value="true" />
+      <created>1689168186508</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689168186508</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Replace board image with the calliope mini drawing">
+      <option name="closed" value="true" />
+      <created>1689168225049</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689168225049</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Make the editor work and fix crashes because the editor expects certain ids inside the board svg">
+      <option name="closed" value="true" />
+      <created>1689236908571</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689236908571</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update board svg, fix rotation of the display, fix lit style of the display">
+      <option name="closed" value="true" />
+      <created>1689244133731</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689244133731</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update board svg, fix rotation of the display, add lit version of the microphone">
+      <option name="closed" value="true" />
+      <created>1689859434775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689859434775</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add pin3 to the simulator state">
+      <option name="closed" value="true" />
+      <created>1689861599426</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689861599426</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Change micropython submodule repo">
+      <option name="closed" value="true" />
+      <created>1689932402425</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1689932402425</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update github actions and implement s3 deployment">
+      <option name="closed" value="true" />
+      <created>1689932636340</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689932636340</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update github actions and implement s3 deployment">
+      <option name="closed" value="true" />
+      <created>1689932675945</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1689932675945</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Change submodule branch">
+      <option name="closed" value="true" />
+      <created>1689943517079</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1689943517079</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Remove branch name from submodule">
+      <option name="closed" value="true" />
+      <created>1689944540228</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1689944540228</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Change branch of micropython submodule">
+      <option name="closed" value="true" />
+      <created>1689944928538</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689944928538</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Remove branch name from module config">
+      <option name="closed" value="true" />
+      <created>1689944971287</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689944971287</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update ci-build script to match that in the readme">
+      <option name="closed" value="true" />
+      <created>1690378848602</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1690378848602</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Test deployment">
+      <option name="closed" value="true" />
+      <created>1690379999064</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1690379999064</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Ignore idea editor settings folder" />
+    <MESSAGE value="Replace board image with the calliope mini drawing" />
+    <MESSAGE value="Make the editor work and fix crashes because the editor expects certain ids inside the board svg" />
+    <MESSAGE value="Update board svg, fix rotation of the display, fix lit style of the display" />
+    <MESSAGE value="Update board svg, fix rotation of the display, add lit version of the microphone" />
+    <MESSAGE value="Add pin3 to the simulator state" />
+    <MESSAGE value="Change micropython submodule repo" />
+    <MESSAGE value="Update github actions and implement s3 deployment" />
+    <MESSAGE value="Change submodule branch" />
+    <MESSAGE value="Remove branch name from submodule" />
+    <MESSAGE value="Change branch of micropython submodule" />
+    <MESSAGE value="Remove branch name from module config" />
+    <MESSAGE value="Update ci-build script to match that in the readme" />
+    <MESSAGE value="Test deployment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test deployment" />
+  </component>
+</project>
