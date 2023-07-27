@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - "**"
-      - "feature/test-deployment"
       - "testrunwith2.1.1"
 
 # This is conservative: ideally we'd include branch and stage in this key
