@@ -5,7 +5,8 @@ on:
     types: [created]
   push:
     branches:
-      - "feature/calliope-rework"
+      - "feature/*"
+      - "main"
 
 # This is conservative: ideally we'd include branch and stage in this key
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
@@ -18,7 +19,7 @@ jobs:
       contents: read
       packages: read
     env:
-      AWS_DEFAULT_REGION: eu-west-1
+      AWS_DEFAULT_REGION: eu-central-1
     steps:
       # Note: This workflow will not run on forks without modification; we're open to making steps
       #       that rely on our deployment infrastructure conditional. Please open an issue.
@@ -32,14 +33,14 @@ jobs:
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - run: npm install --no-save @microbit-foundation/website-deploy-aws@0.3.0 @microbit-foundation/website-deploy-aws-config@0.7.1 @microbit-foundation/circleci-npm-package-versioner@1
-#        env:
-#          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - run: node ./bin/print-ci-env.js >> $GITHUB_ENV
+      - run: npm install --no-save @calliope-edu/website-deploy-aws-config # @microbit-foundation/website-deploy-aws@0.3.0 @microbit-foundation/website-deploy-aws-config@0.7.1 @microbit-foundation/circleci-npm-package-versioner@1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node ./bin/print-ci-env.js >> $GITHUB_ENV
 #      - run: npm run ci:update-version
       - run: ./ci-build.sh
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./build/ s3://${{ secrets.BUCKET_NAME_STAGING }} --delete
+        run: aws s3 sync ./build/ s3://${{ secrets.DEPLOY_PATH }} --delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.WEB_DEPLOY_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.WEB_DEPLOY_AWS_SECRET_ACCESS_KEY }}

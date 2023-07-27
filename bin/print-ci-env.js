@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 const ref = process.env.GITHUB_REF;
 let stage;
-if (ref === "refs/heads/main") {
+
+if (ref.startsWith("refs/heads/feature")) {
   stage = "STAGING";
-} else if (ref.startsWith("refs/tags/v")) {
+} else if (ref.startsWith("refs/heads/main")) {
   stage = "PRODUCTION";
 } else {
   stage = "REVIEW";

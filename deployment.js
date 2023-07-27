@@ -5,25 +5,23 @@
  */
 const {
   createDeploymentDetailsFromOptions,
-} = require("@microbit-foundation/website-deploy-aws-config");
+} = require("@calliope-edu/website-deploy-aws-config");
 
 const { s3Config } = createDeploymentDetailsFromOptions({
   production: {
-    bucket: "python-simulator.usermbit.org",
-    mode: "patch",
+    bucket: "production.calliope.simulator",
   },
   staging: {
-    bucket: "python-simulator.usermbit.org",
-    prefix: "staging",
+    bucket: "staging.calliope.simulator",
   },
   review: {
-    bucket: "review-python-simulator.usermbit.org",
+    bucket: "review.calliope.simulator",
     mode: "branch-prefix",
   },
 });
 module.exports = {
   ...s3Config,
-  region: "eu-west-1",
+  region: "eu-central-1",
   removeNonexistentObjects: true,
   enableS3StaticWebsiteHosting: true,
   errorDocumentKey: "index.html",
