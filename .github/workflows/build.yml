@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - "**"
-      - "feature/test-deployment"
+      - "testrunwith2.1.1"
 
 # This is conservative: ideally we'd include branch and stage in this key
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
