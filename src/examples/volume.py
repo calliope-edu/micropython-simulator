@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 import music
 
 

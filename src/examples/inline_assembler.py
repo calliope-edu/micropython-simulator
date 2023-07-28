@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 
 # Unsupported in the simulator
 @micropython.asm_thumb

@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 
 display.scroll("Hello")
 display.scroll("World", wait=False)

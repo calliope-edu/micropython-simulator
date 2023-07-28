@@ -1,5 +1,5 @@
 # Imports go at the top
-from microbit import *
+from calliopemini import *
 
 # Code in a 'while True:' loop repeats forever
 while True:

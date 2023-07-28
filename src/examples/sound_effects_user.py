@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 
 # Create a Sound Effect and immediately play it
 audio.play(

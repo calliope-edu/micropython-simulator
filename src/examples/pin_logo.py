@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 
 while True:
     while pin_logo.is_touched():

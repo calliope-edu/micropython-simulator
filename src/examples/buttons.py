@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 
 while True:
     if button_a.is_pressed():

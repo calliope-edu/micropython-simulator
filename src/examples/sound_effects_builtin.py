@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 
 # You don't hear this one because we don't wait then play another which stops this one.
 display.show(Image.HAPPY)

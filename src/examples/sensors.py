@@ -1,4 +1,4 @@
-from microbit import *
+from calliopemini import *
 
 while True:
     print(display.read_light_level())

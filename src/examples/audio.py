@@ -4,7 +4,7 @@
 
 import math
 import audio
-from microbit import pin0, running_time
+from calliopemini import pin0, running_time
 
 print("frames should take {} ms to play".format(32 / 7812.5 * 1000))
 
