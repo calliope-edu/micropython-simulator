@@ -37,10 +37,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: node ./bin/print-ci-env.js >> $GITHUB_ENV
+      - run: node ./bin/print-ci-env.js
+      - run: node ./bin/print-ci-env-public-url.js >> $GITHUB_ENV
+      - run: node ./bin/print-ci-env-public-url.js
 #      - run: npm run ci:update-version
       - run: ./ci-build.sh
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./build/ s3://${{ secrets.DEPLOY_PATH }} --delete
+        run: aws s3 sync ./build/ s3://${{ env.DEPLOY_PATH }} --delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.WEB_DEPLOY_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.WEB_DEPLOY_AWS_SECRET_ACCESS_KEY }}
