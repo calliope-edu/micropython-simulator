@@ -83,8 +83,8 @@ void mp_js_main(int heap_size) {
                 // exec("main.py")
                 microbit_pyexec_file(main_py);
             } else {
-                // from microbit import *
-                mp_import_all(mp_import_name(MP_QSTR_microbit, mp_const_empty_tuple, MP_OBJ_NEW_SMALL_INT(0)));
+                // from calliopemini import *
+                mp_import_all(mp_import_name(MP_QSTR_calliopemini, mp_const_empty_tuple, MP_OBJ_NEW_SMALL_INT(0)));
             }
         }
 
