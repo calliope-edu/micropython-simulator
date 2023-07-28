@@ -156,7 +156,7 @@ export class Board {
     private svg: SVGElement
   ) {
     this.display = new Display(
-      Array.from(this.svg.querySelector("#LED-Matrix")!.querySelectorAll("rect"))
+      Array.from(this.svg.querySelector("#LED-Matrix")!.querySelectorAll("path"))
     );
     const onChange = this.notifications.onStateChange;
     this.buttons = [
