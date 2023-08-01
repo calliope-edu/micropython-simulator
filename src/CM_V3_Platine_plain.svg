@@ -306,30 +306,30 @@
     </g>
     <g id="LEDs">
         <g id="RGB-LEDs">
-        <g id="RGB-LED">
-            <path class="boardSt27" d="M108.7 129.8c0 .3.2.6.6.7v1.4c-.3.1-.6.4-.6.7 0 .3.2.6.6.7v.4c0 .2-.1.3-.3.3h-5.7c-.2 0-.3-.1-.3-.3v-.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-1.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-.4c0-.2.1-.3.3-.3h5.7c.2 0 .3.1.3.3v.4c-.4.1-.6.4-.6.7z"/>
-            <path class="boardSt28" d="M104.4 128.9h2v.9h-2z"/>
-            <path class="boardSt29" d="M104 128.4h4.1v5.7H104z"/>
-        </g>
+            <g id="RGB-LED">
+                <path class="boardSt27" d="M108.7 129.8c0 .3.2.6.6.7v1.4c-.3.1-.6.4-.6.7 0 .3.2.6.6.7v.4c0 .2-.1.3-.3.3h-5.7c-.2 0-.3-.1-.3-.3v-.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-1.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-.4c0-.2.1-.3.3-.3h5.7c.2 0 .3.1.3.3v.4c-.4.1-.6.4-.6.7z"/>
+                <path class="boardSt28" d="M104.4 128.9h2v.9h-2z"/>
+                <path class="boardSt29" d="M104 128.4h4.1v5.7H104z"/>
+            </g>
             <g id="RGB-LED_00000158739878078468973790000015867953343331084186_">
-            <path class="boardSt27" d="M122.9 129.8c0 .3.2.6.6.7v1.4c-.3.1-.6.4-.6.7 0 .3.2.6.6.7v.4c0 .2-.1.3-.3.3h-5.7c-.2 0-.3-.1-.3-.3v-.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-1.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-.4c0-.2.1-.3.3-.3h5.7c.2 0 .3.1.3.3v.4c-.4.1-.6.4-.6.7z"/>
-                <path class="boardSt28" d="M118.6 128.9h2v.9h-2z"/>
-                <path class="boardSt29" d="M118.2 128.4h4.1v5.7h-4.1z"/>
-        </g>
+                <path class="boardSt27" d="M122.9 129.8c0 .3.2.6.6.7v1.4c-.3.1-.6.4-.6.7 0 .3.2.6.6.7v.4c0 .2-.1.3-.3.3h-5.7c-.2 0-.3-.1-.3-.3v-.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-1.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-.4c0-.2.1-.3.3-.3h5.7c.2 0 .3.1.3.3v.4c-.4.1-.6.4-.6.7z"/>
+                    <path class="boardSt28" d="M118.6 128.9h2v.9h-2z"/>
+                    <path class="boardSt29" d="M118.2 128.4h4.1v5.7h-4.1z"/>
+            </g>
             <g id="RGB-LED_00000128446559331746034690000000773108269480224647_">
-            <path class="boardSt27" d="M137 129.8c0 .3.2.6.6.7v1.4c-.3.1-.6.4-.6.7 0 .3.2.6.6.7v.4c0 .2-.1.3-.3.3h-5.7c-.2 0-.3-.1-.3-.3v-.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-1.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-.4c0-.2.1-.3.3-.3h5.7c.2 0 .3.1.3.3v.4c-.3.1-.6.4-.6.7z"/>
-                <path class="boardSt28" d="M132.8 128.9h2v.9h-2z"/>
-                <path class="boardSt29" d="M132.4 128.4h4.1v5.7h-4.1z"/>
+                <path class="boardSt27" d="M137 129.8c0 .3.2.6.6.7v1.4c-.3.1-.6.4-.6.7 0 .3.2.6.6.7v.4c0 .2-.1.3-.3.3h-5.7c-.2 0-.3-.1-.3-.3v-.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-1.4c.3-.1.6-.4.6-.7 0-.3-.2-.6-.6-.7v-.4c0-.2.1-.3.3-.3h5.7c.2 0 .3.1.3.3v.4c-.3.1-.6.4-.6.7z"/>
+                    <path class="boardSt28" d="M132.8 128.9h2v.9h-2z"/>
+                    <path class="boardSt29" d="M132.4 128.4h4.1v5.7h-4.1z"/>
+            </g>
         </g>
-    </g>
         <g id="Kleine_LEDs">
-        <use xlink:href="#Calliope_x5F_3_x5F_Small_x5F_LED" width="1.4" height="2.8" id="XMLID_00000081620067914281799210000005554354341423305093_" x="-.7" y="-1.4" transform="matrix(1 0 0 -1 101.563 26.86)" style="overflow:visible"/>
+            <use xlink:href="#Calliope_x5F_3_x5F_Small_x5F_LED" width="1.4" height="2.8" id="XMLID_00000081620067914281799210000005554354341423305093_" x="-.7" y="-1.4" transform="matrix(1 0 0 -1 101.563 26.86)" style="overflow:visible"/>
             <use xlink:href="#Calliope_x5F_3_x5F_Small_x5F_LED" width="1.4" height="2.8" id="XMLID_00000042696738688737490220000013228333503857632937_" x="-.7" y="-1.4" transform="matrix(1 0 0 -1 98.725 26.86)" style="overflow:visible"/>
             <use xlink:href="#Calliope_x5F_3_x5F_Small_x5F_LED" width="1.4" height="2.8" id="XMLID_00000094584626844950144800000001489643496691546543_" x="-.7" y="-1.4" transform="matrix(0 -1 -1 0 205.514 110.04)" style="overflow:visible"/>
-    </g>
+        </g>
         <g id="Matrix">
             <g id="LED-Matrix-Off" transform="matrix(0 .437 -.45 0 165.2 60.4)">
-            <path id="LED_0_4" class="ledOff" d="M10 147h10v6H10z"/>
+                <path id="LED_0_4" class="ledOff" d="M10 147h10v6H10z"/>
                 <path id="LED_1_4" class="ledOff" d="M36 147h10v6H36z"/>
                 <path id="LED_2_4" class="ledOff" d="M62 147h10v6H62z"/>
                 <path id="LED_3_4" class="ledOff" d="M88 147h10v6H88z"/>
@@ -356,32 +356,32 @@
                 <path id="LED_4_0" class="ledOff" d="M114 46h10v6h-10z"/>
             </g>
             <g id="LED-Matrix" transform="matrix(0 .437 -.45 0 165.2 60.4)">
-        <path id="LED_0_4" class="ledOn" d="M10 147h10v6H10z"/>
-        <path id="LED_1_4" class="ledOn" d="M36 147h10v6H36z"/>
-        <path id="LED_2_4" class="ledOn" d="M62 147h10v6H62z"/>
-        <path id="LED_3_4" class="ledOn" d="M88 147h10v6H88z"/>
-        <path id="LED_4_4" class="ledOn" d="M114 147h10v6h-10z"/>
-        <path id="LED_0_3" class="ledOn" d="M10 122h10v6H10z"/>
-        <path id="LED_1_3" class="ledOn" d="M36 122h10v6H36z"/>
-        <path id="LED_2_3" class="ledOn" d="M62 122h10v6H62z"/>
-        <path id="LED_3_3" class="ledOn" d="M88 122h10v6H88z"/>
-        <path id="LED_4_3" class="ledOn" d="M114 122h10v6h-10z"/>
-        <path id="LED_0_2" class="ledOn" d="M10 97h10v6H10z"/>
-        <path id="LED_1_2" class="ledOn" d="M36 97h10v6H36z"/>
-        <path id="LED_2_2" class="ledOn" d="M62 97h10v6H62z"/>
-        <path id="LED_3_2" class="ledOn" d="M88 97h10v6H88z"/>
-        <path id="LED_4_2" class="ledOn" d="M114 97h10v6h-10z"/>
-        <path id="LED_0_1" class="ledOn" d="M10 71h10v6H10z"/>
-        <path id="LED_1_1" class="ledOn" d="M36 71h10v6H36z"/>
-        <path id="LED_2_1" class="ledOn" d="M62 71h10v6H62z"/>
-        <path id="LED_3_1" class="ledOn" d="M88 71h10v6H88z"/>
-        <path id="LED_4_1" class="ledOn" d="M114 71h10v6h-10z"/>
-        <path id="LED_0_0" class="ledOn" d="M10 46h10v6H10z"/>
-        <path id="LED_1_0" class="ledOn" d="M36 46h10v6H36z"/>
-        <path id="LED_2_0" class="ledOn" d="M62 46h10v6H62z"/>
-        <path id="LED_3_0" class="ledOn" d="M88 46h10v6H88z"/>
-        <path id="LED_4_0" class="ledOn" d="M114 46h10v6h-10z"/>
-        </g>
+                <path id="LED_0_4" class="ledOn" d="M10 147h10v6H10z"/>
+                <path id="LED_1_4" class="ledOn" d="M36 147h10v6H36z"/>
+                <path id="LED_2_4" class="ledOn" d="M62 147h10v6H62z"/>
+                <path id="LED_3_4" class="ledOn" d="M88 147h10v6H88z"/>
+                <path id="LED_4_4" class="ledOn" d="M114 147h10v6h-10z"/>
+                <path id="LED_0_3" class="ledOn" d="M10 122h10v6H10z"/>
+                <path id="LED_1_3" class="ledOn" d="M36 122h10v6H36z"/>
+                <path id="LED_2_3" class="ledOn" d="M62 122h10v6H62z"/>
+                <path id="LED_3_3" class="ledOn" d="M88 122h10v6H88z"/>
+                <path id="LED_4_3" class="ledOn" d="M114 122h10v6h-10z"/>
+                <path id="LED_0_2" class="ledOn" d="M10 97h10v6H10z"/>
+                <path id="LED_1_2" class="ledOn" d="M36 97h10v6H36z"/>
+                <path id="LED_2_2" class="ledOn" d="M62 97h10v6H62z"/>
+                <path id="LED_3_2" class="ledOn" d="M88 97h10v6H88z"/>
+                <path id="LED_4_2" class="ledOn" d="M114 97h10v6h-10z"/>
+                <path id="LED_0_1" class="ledOn" d="M10 71h10v6H10z"/>
+                <path id="LED_1_1" class="ledOn" d="M36 71h10v6H36z"/>
+                <path id="LED_2_1" class="ledOn" d="M62 71h10v6H62z"/>
+                <path id="LED_3_1" class="ledOn" d="M88 71h10v6H88z"/>
+                <path id="LED_4_1" class="ledOn" d="M114 71h10v6h-10z"/>
+                <path id="LED_0_0" class="ledOn" d="M10 46h10v6H10z"/>
+                <path id="LED_1_0" class="ledOn" d="M36 46h10v6H36z"/>
+                <path id="LED_2_0" class="ledOn" d="M62 46h10v6H62z"/>
+                <path id="LED_3_0" class="ledOn" d="M88 46h10v6H88z"/>
+                <path id="LED_4_0" class="ledOn" d="M114 46h10v6h-10z"/>
+            </g>
         </g>
     </g>
     <g id="Tasten">
