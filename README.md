@@ -282,8 +282,8 @@ Emscripten. It provides a simulated micro:bit (including REPL) in the browser.
 
 To build, first fetch the submodules (don't use recursive fetch):
 
-    $ git submodule update --init lib/micropython-microbit-v2
-    $ git -C lib/micropython-microbit-v2 submodule update --init lib/micropython
+    $ git submodule update --init lib/micropython-microbit
+    $ git -C lib/micropython-microbit submodule update --init lib/micropython
 
 Then run (from this top-level directory):
 

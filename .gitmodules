@@ -1,3 +1,3 @@
-[submodule "lib/micropython-microbit-v2"]
-	path = lib/micropython-microbit-v2
-	url = https://github.com/calliope-edu/micropython-microbit-v2.git
+[submodule "lib/micropython-microbit"]
+	path = lib/micropython-microbit
+	url = https://github.com/calliope-edu/micropython-calliope-mini-v3.git
