@@ -1,13 +1,13 @@
 # Makefile to build WASM and simulator JS.
 
 # Build upon the codal_port code.
-CODAL_PORT = $(abspath ../lib/micropython-microbit-v2/src/codal_port)
-CODAL_APP = $(abspath ../lib/micropython-microbit-v2/src/codal_app)
+CODAL_PORT = $(abspath ../lib/micropython-microbit/src/codal_port)
+CODAL_APP = $(abspath ../lib/micropython-microbit/src/codal_app)
 
 MICROPY_ROM_TEXT_COMPRESSION ?= 1
 FROZEN_MANIFEST ?= $(CODAL_PORT)/manifest.py
 
-include ../lib/micropython-microbit-v2/lib/micropython/py/mkenv.mk
+include ../lib/micropython-microbit/lib/micropython/py/mkenv.mk
 -include mpconfigport.mk
 
 # QSTR definitions (must come before including py.mk).
@@ -22,7 +22,7 @@ LD = emcc
 MP_VER_FILE = $(HEADER_BUILD)/mpversion.h
 MBIT_VER_FILE = $(HEADER_BUILD)/microbitversion.h
 
-LOCAL_LIB_DIR = ../lib/micropython-microbit-v2/lib
+LOCAL_LIB_DIR = ../lib/micropython-microbit/lib
 
 INC += -I.
 INC += -I$(CODAL_PORT)
