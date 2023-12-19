@@ -1,11 +1,6 @@
-# MicroPython-micro:bit simulator
+# MicroPython simulator
 
-## Try it out
-
-To try the simulator use the [micro:bit Python Editor](https://python.microbit.org).
-
-The rest of this page explains how to embed the simulator in an application
-and develop the simulator software.
+Initially developed by the Microbit Foundation (http://github.com/microbit-foundation), adapted to work with the Calliope mini.
 
 ## License
 
@@ -17,12 +12,11 @@ This software is under the MIT open source license.
 
 The simulator is designed to be embedded into other web applications
 as an iframe. The embedding API and URLs are not yet stable and are
-subject to change. If you are interested in embedding the simulator
-in your application please [get in touch](mailto:support@microbit.org).
+subject to change. 
 
 The URL to embed is https://python-simulator.usermbit.org/v/0.1/simulator.html (URL may change in future, for experimentation only).
 
-The iframe provides the micro:bit board user interface and some limited
+The iframe provides the Calliope mini user interface and some limited
 interactions. It does not provide a terminal for serial/the REPL or any UI to change the board sensor state.
 
 A value for a brand color can be passed to the simulator via a query
@@ -180,7 +174,7 @@ If you send string data from the program then it will be prepended with the thre
 }
 ```
 
-<td>Update the micro:bit filesystem and restart the program. You must send this in response to the request_flash message.
+<td>Update the Calliope mini filesystem and restart the program. You must send this in response to the request_flash message.
 
 <tr>
 <td>stop
