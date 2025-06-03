@@ -30,6 +30,7 @@ export const MICROBIT_HAL_PIN_SPEAKER = 20;
 export const MICROBIT_HAL_PIN_USB_TX = 30;
 export const MICROBIT_HAL_PIN_USB_RX = 31;
 export const MICROBIT_HAL_PIN_MIXER = 33;
+export const MICROBIT_HAL_PIN_RGB = 35;
 
 // These match the micro:bit v1 constants.
 export const MICROBIT_HAL_PIN_PULL_UP = 0;

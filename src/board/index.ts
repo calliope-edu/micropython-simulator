@@ -24,6 +24,7 @@ import {
   MICROBIT_HAL_PIN_P16,
   MICROBIT_HAL_PIN_P19,
   MICROBIT_HAL_PIN_P20,
+  MICROBIT_HAL_PIN_RGB,
 } from "./constants";
 import * as conversions from "./conversions";
 import { DataLogging } from "./data-logging";
@@ -173,7 +174,7 @@ export class Board {
         onChange
       ),
     ];
-    this.pins = Array(33);
+    this.pins = Array(36);
     this.pins[MICROBIT_HAL_PIN_FACE] = new TouchPin(
       "pinLogo",
       {
@@ -201,6 +202,7 @@ export class Board {
     this.pins[MICROBIT_HAL_PIN_P16] = new StubPin("pin16");
     this.pins[MICROBIT_HAL_PIN_P19] = new StubPin("pin19");
     this.pins[MICROBIT_HAL_PIN_P20] = new StubPin("pin20");
+    this.pins[MICROBIT_HAL_PIN_RGB] = new StubPin("pinRGB");
 
     this.audio = new Audio();
     this.temperature = new RangeSensor("temperature", -5, 50, 21, "°C");
@@ -685,6 +687,52 @@ export class Board {
     }
     return this.module.writeRadioRxBuffer(packet);
   }
+
+writeRGBLEDs(pin: number, buffer: Uint8Array): void {
+    console.log(`RGB LED data for pin ${pin}:`, Array.from(buffer));
+    
+    const numLEDs = Math.min(buffer.length / 3, 3); // Max 3 RGB LEDs on Calliope
+    for (let i = 0; i < numLEDs; i++) {
+        // Cap RGB values properly
+        let r = Math.min(buffer[i * 3], 255);
+        let g = Math.min(buffer[i * 3 + 1], 255);
+        let b = Math.min(buffer[i * 3 + 2], 255);
+
+        // Swap red and green to fix color mapping
+        const correctedR = g;
+        const correctedG = r;
+        const correctedB = b;
+
+        console.log(`LED ${i}: RGB(${correctedR}, ${correctedG}, ${correctedB}) [corrected from (${r}, ${g}, ${b})]`);
+
+        // Update the visual RGB LED in the SVG
+        const rgbLedGroup = this.svg.querySelector(`#RGB-LED_${i}`);
+        if (rgbLedGroup) {
+            const ledPath = rgbLedGroup.querySelector('.boardSt29') as SVGPathElement;
+            if (ledPath) {
+                // Convert RGB values to hex color
+                const hexColor = `#${correctedR.toString(16).padStart(2, '0')}${correctedG.toString(16).padStart(2, '0')}${correctedB.toString(16).padStart(2, '0')}`;
+                ledPath.style.fill = hexColor;
+
+                // Improved visibility scaling for low values
+                const totalBrightness = correctedR + correctedG + correctedB;
+                let opacity = totalBrightness > 0 ? Math.max(0.6, Math.min(1.0, totalBrightness / 50)).toString() : '0.1';
+                ledPath.style.opacity = opacity;
+
+                // Stronger glow effect with increased intensity
+                if (totalBrightness > 0) {
+                    ledPath.style.filter = `drop-shadow(0 0 16px ${hexColor}) 
+                                            drop-shadow(0 0 32px ${hexColor}90) 
+                                            drop-shadow(0 0 48px ${hexColor}60) 
+                                            drop-shadow(0 0 64px ${hexColor}40)`;
+                } else {
+                    ledPath.style.filter = 'none';
+                }
+            }
+        }
+    }
+}
+
 
   initialize() {
     this.epoch = new Date().getTime();

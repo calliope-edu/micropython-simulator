@@ -163,7 +163,9 @@ int microbit_hal_pin_is_touched(int pin) {
 }
 
 void microbit_hal_pin_write_ws2812(int pin, const uint8_t *buf, size_t len) {
-    //neopixel_send_buffer(*pin_obj[pin], buf, len);
+    // For the simulator, we'll call a JavaScript function to handle RGB LED data
+    // The buffer contains RGB data in groups of 3 bytes (R, G, B) per LED
+    mp_js_hal_pin_write_ws2812(pin, buf, len);
 }
 
 int microbit_hal_i2c_init(int scl, int sda, int freq) {
