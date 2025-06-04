@@ -688,6 +688,43 @@ export class Board {
     return this.module.writeRadioRxBuffer(packet);
   }
 
+// RGB to HSL conversion function
+private rgb2hsl(r: number, g: number, b: number): [number, number, number] {
+    // see https://en.wikipedia.org/wiki/HSL_and_HSV#Formal_derivation
+    // convert r,g,b [0,255] range to [0,1]
+    r = r / 255;
+    g = g / 255;
+    b = b / 255;
+    // get the min and max of r,g,b
+    var max = Math.max(r, g, b);
+    var min = Math.min(r, g, b);
+    // lightness is the average of the largest and smallest color components
+    var lum = (max + min) / 2;
+    var hue = 0;
+    var sat = 0;
+    if (max != min) { // has saturation
+        var c = max - min; // chroma
+        // saturation is simply the chroma scaled to fill
+        // the interval [0, 1] for every combination of hue and lightness
+        sat = c / (1 - Math.abs(2 * lum - 1));
+        switch(max) {
+            case r:
+                hue = (g - b) / c + (g < b ? 6 : 0);
+                break;
+            case g:
+                hue = (b - r) / c + 2;
+                break;
+            case b:
+                hue = (r - g) / c + 4;
+                break;
+        }
+    }
+    hue = Math.round(hue * 60); // °
+    sat = Math.round(sat * 100); // %
+    lum = Math.round(lum * 100); // %
+    return [hue, sat, lum];
+}
+
 writeRGBLEDs(pin: number, buffer: Uint8Array): void {
     console.log(`RGB LED data for pin ${pin}:`, Array.from(buffer));
     
@@ -705,40 +742,42 @@ writeRGBLEDs(pin: number, buffer: Uint8Array): void {
 
         console.log(`LED ${i}: RGB(${correctedR}, ${correctedG}, ${correctedB}) [corrected from (${r}, ${g}, ${b})]`);
 
+        // Convert RGB to HSL
+        const [hue, saturation, lightness] = this.rgb2hsl(correctedR, correctedG, correctedB);
+        console.log(`LED ${i}: HSL(${hue}°, ${saturation}%, ${lightness}%)`);
+
         // Update the visual RGB LED in the SVG
         const rgbLedGroup = this.svg.querySelector(`#RGB-LED_${i}`);
         if (rgbLedGroup) {
             const ledPath = rgbLedGroup.querySelector('.boardSt29') as SVGPathElement;
             if (ledPath) {
-                // Convert RGB values to hex color
-                const hexColor = `#${correctedR.toString(16).padStart(2, '0')}${correctedG.toString(16).padStart(2, '0')}${correctedB.toString(16).padStart(2, '0')}`;
-                ledPath.style.fill = hexColor;
+                // Use HSL for the LED fill color with full saturation and lightness
+                const hslColor = `hsl(${hue}, ${saturation}%, 50%)`; // Use 50% lightness for good visibility
+                ledPath.style.fill = hslColor;
 
-                // Improved visibility scaling for low values
+                // Always show LEDs at full opacity with correct color, control brightness via glow
                 const totalBrightness = correctedR + correctedG + correctedB;
-                let opacity = totalBrightness > 0 ? Math.max(0.6, Math.min(1.0, totalBrightness / 50)).toString() : '0.1';
-                ledPath.style.opacity = opacity;
+                ledPath.style.opacity = totalBrightness > 0 ? '1.0' : '0.1';
 
-                // Create a proper glow effect using a single filter with multiple shadows
+                // Create brightness-controlled glow effect using the HSL color
                 if (totalBrightness > 0) {
-                    // Use a single line filter string to avoid parsing issues
-                    ledPath.style.filter = `drop-shadow(0 0 8px ${hexColor}) drop-shadow(0 0 16px ${hexColor}) drop-shadow(0 0 24px ${hexColor}) drop-shadow(0 0 32px ${hexColor})`;
+                    // Scale glow intensity based on the original lightness value
+                    const glowIntensity = Math.min(1.0, lightness / 50); // Scale based on HSL lightness
+                    const baseGlow = Math.max(4, glowIntensity * 16); // Min 4px, max 16px
+                    const mediumGlow = Math.max(8, glowIntensity * 32); // Min 8px, max 32px
+                    const largeGlow = Math.max(12, glowIntensity * 48); // Min 12px, max 48px
                     
-                    // Also add a CSS glow using box-shadow if the browser supports it
-                    ledPath.style.boxShadow = `0 0 20px ${hexColor}, 0 0 40px ${hexColor}, 0 0 60px ${hexColor}`;
-                    
-                    // Set a higher opacity for better glow visibility
-                    ledPath.style.opacity = '1.0';
+                    // Apply scaled glow effects using HSL color
+                    ledPath.style.filter = `drop-shadow(0 0 ${baseGlow}px ${hslColor}) drop-shadow(0 0 ${mediumGlow}px ${hslColor}) drop-shadow(0 0 ${largeGlow}px ${hslColor})`;
+                    ledPath.style.boxShadow = `0 0 ${baseGlow * 2}px ${hslColor}, 0 0 ${mediumGlow * 2}px ${hslColor}, 0 0 ${largeGlow * 2}px ${hslColor}`;
                 } else {
                     ledPath.style.filter = 'none';
                     ledPath.style.boxShadow = 'none';
-                    ledPath.style.opacity = '0.1';
                 }
+            } 
             }
         }
-    }
-}
-
+  }
 
   initialize() {
     this.epoch = new Date().getTime();
