@@ -719,14 +719,20 @@ writeRGBLEDs(pin: number, buffer: Uint8Array): void {
                 let opacity = totalBrightness > 0 ? Math.max(0.6, Math.min(1.0, totalBrightness / 50)).toString() : '0.1';
                 ledPath.style.opacity = opacity;
 
-                // Stronger glow effect with increased intensity
+                // Create a proper glow effect using a single filter with multiple shadows
                 if (totalBrightness > 0) {
-                    ledPath.style.filter = `drop-shadow(0 0 16px ${hexColor}) 
-                                            drop-shadow(0 0 32px ${hexColor}90) 
-                                            drop-shadow(0 0 48px ${hexColor}60) 
-                                            drop-shadow(0 0 64px ${hexColor}40)`;
+                    // Use a single line filter string to avoid parsing issues
+                    ledPath.style.filter = `drop-shadow(0 0 8px ${hexColor}) drop-shadow(0 0 16px ${hexColor}) drop-shadow(0 0 24px ${hexColor}) drop-shadow(0 0 32px ${hexColor})`;
+                    
+                    // Also add a CSS glow using box-shadow if the browser supports it
+                    ledPath.style.boxShadow = `0 0 20px ${hexColor}, 0 0 40px ${hexColor}, 0 0 60px ${hexColor}`;
+                    
+                    // Set a higher opacity for better glow visibility
+                    ledPath.style.opacity = '1.0';
                 } else {
                     ledPath.style.filter = 'none';
+                    ledPath.style.boxShadow = 'none';
+                    ledPath.style.opacity = '0.1';
                 }
             }
         }
