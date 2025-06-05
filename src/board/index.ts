@@ -34,8 +34,8 @@ import { Microphone } from "./microphone";
 import { Pin, StubPin, TouchPin } from "./pins";
 import { Radio } from "./radio";
 import { RangeSensor, State } from "./state";
-
-// import { writeRGBLEDs, resetRGBLEDs } from "./rgbleds";
+import { ModuleWrapper } from "./wasm";
+import { writeRGBLEDs, resetRGBLEDs } from "./rgbleds";
 
 enum StopKind {
   /**
@@ -690,13 +690,13 @@ export class Board {
   }
 
   // Calliope RGB Simulator
-  // writeRGBLEDs(pin: number, buffer: Uint8Array): void {
-  //   writeRGBLEDs(this.svg, pin, buffer);
-  // }
+  writeRGBLEDs(pin: number, buffer: Uint8Array): void {
+    writeRGBLEDs(this.svg, pin, buffer);
+  }
 
-  // resetRGBLEDs(){
-  //   resetRGBLEDs(this.svg);
-  // }
+  resetRGBLEDs(){
+    resetRGBLEDs(this.svg);
+  }
   
   initialize() {
     this.epoch = new Date().getTime();
@@ -716,7 +716,7 @@ export class Board {
     this.serialInputBuffer.length = 0;
    
     // Reset RGB LEDs state
-    // this.resetRGBLEDs();
+    this.resetRGBLEDs();
 
     // Nofify of the state resets.
     this.notifications.onStateChange(this.getState());
