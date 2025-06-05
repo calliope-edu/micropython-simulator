@@ -731,19 +731,12 @@ writeRGBLEDs(pin: number, buffer: Uint8Array): void {
     const numLEDs = Math.min(buffer.length / 3, 3); // Max 3 RGB LEDs on Calliope
     for (let i = 0; i < numLEDs; i++) {
         // Cap RGB values properly
-        let r = Math.min(buffer[i * 3], 255);
-        let g = Math.min(buffer[i * 3 + 1], 255);
+        let g = Math.min(buffer[i * 3], 255);
+        let r = Math.min(buffer[i * 3 + 1], 255);
         let b = Math.min(buffer[i * 3 + 2], 255);
 
-        // Swap red and green to fix color mapping
-        const correctedR = g;
-        const correctedG = r;
-        const correctedB = b;
-
-        console.log(`LED ${i}: RGB(${correctedR}, ${correctedG}, ${correctedB}) [corrected from (${r}, ${g}, ${b})]`);
-
         // Convert RGB to HSL
-        const [hue, saturation, lightness] = this.rgb2hsl(correctedR, correctedG, correctedB);
+        const [hue, saturation, lightness] = this.rgb2hsl(r, g, b);
         console.log(`LED ${i}: HSL(${hue}°, ${saturation}%, ${lightness}%)`);
 
         // Update the visual RGB LED in the SVG
@@ -751,26 +744,43 @@ writeRGBLEDs(pin: number, buffer: Uint8Array): void {
         if (rgbLedGroup) {
             const ledPath = rgbLedGroup.querySelector('.boardSt29') as SVGPathElement;
             if (ledPath) {
-                // Use HSL for the LED fill color with full saturation and lightness
-                const hslColor = `hsl(${hue}, ${saturation}%, 50%)`; // Use 50% lightness for good visibility
-                ledPath.style.fill = hslColor;
+                
+              var fixedlightness = 50; // Use 50% lightness for good visibility
+              // Use HSL for the LED fill color with full saturation and lightness
+              if (g == r && g == b)
+                fixedlightness = 100; // Use 100% lightness in case led color is 'white'
+              
+              const hslColor = `hsl(${hue}, ${saturation}%, ${fixedlightness}%)`; 
+              ledPath.style.fill = hslColor;
 
                 // Always show LEDs at full opacity with correct color, control brightness via glow
-                const totalBrightness = correctedR + correctedG + correctedB;
+                const totalBrightness = r + g + b;
                 ledPath.style.opacity = totalBrightness > 0 ? '1.0' : '0.1';
 
                 // Create brightness-controlled glow effect using the HSL color
                 if (totalBrightness > 0) {
+
                     // Scale glow intensity based on the original lightness value
-                    const glowIntensity = Math.min(1.0, lightness / 50); // Scale based on HSL lightness
-                    const baseGlow = Math.max(4, glowIntensity * 16); // Min 4px, max 16px
-                    const mediumGlow = Math.max(8, glowIntensity * 32); // Min 8px, max 32px
-                    const largeGlow = Math.max(12, glowIntensity * 48); // Min 12px, max 48px
+                    const glowIntensity = 1.0 - Math.min(1.0, lightness / 50); // Scale based on HSL lightness, needed to be inverted (HW) 
+     
+                    // Use a combination of CSS filters for a smoother effect
+                    // First, apply a drop-shadow filter with the LED's color
+                    const baseGlow = Math.max(2, glowIntensity * 8); // Min 2px, max 8px
+                    const mediumGlow = Math.max(4, glowIntensity * 16); // Min 4px, max 16px
+                    const largeGlow = Math.max(6, glowIntensity * 24); // Min 6px, max 24px
                     
-                    // Apply scaled glow effects using HSL color
-                    ledPath.style.filter = `drop-shadow(0 0 ${baseGlow}px ${hslColor}) drop-shadow(0 0 ${mediumGlow}px ${hslColor}) drop-shadow(0 0 ${largeGlow}px ${hslColor})`;
-                    ledPath.style.boxShadow = `0 0 ${baseGlow * 2}px ${hslColor}, 0 0 ${mediumGlow * 2}px ${hslColor}, 0 0 ${largeGlow * 2}px ${hslColor}`;
-                } else {
+                    // Apply multiple drop shadows with increasing blur radius for a more natural glow
+                    ledPath.style.filter = `drop-shadow(0 0 ${baseGlow}px ${hslColor}) 
+                                           drop-shadow(0 0 ${mediumGlow}px ${hslColor}) 
+                                           drop-shadow(0 0 ${largeGlow}px ${hslColor})`;
+                    
+                    // Add a subtle brightness filter to enhance the glow effect
+                    const brightness = 1.0 + (glowIntensity * 0.5); // 1.0 to 1.5
+                    ledPath.style.filter += ` brightness(${brightness})`;
+                    
+                    // Make sure the LED is visible above other elements
+                    ledPath.style.zIndex = '10';
+              } else {
                     ledPath.style.filter = 'none';
                     ledPath.style.boxShadow = 'none';
                 }
@@ -778,6 +788,21 @@ writeRGBLEDs(pin: number, buffer: Uint8Array): void {
             }
         }
   }
+
+private resetRGBLEDs() {
+  // Reset all 3 RGB LEDs
+  for (let i = 0; i < 3; i++) {
+    const rgbLedGroup = this.svg.querySelector(`#RGB-LED_${i}`);
+    if (rgbLedGroup) {
+      const ledPath = rgbLedGroup.querySelector('.boardSt29') as SVGPathElement;
+      if (ledPath) {
+        // Reset the LED appearance
+        ledPath.style.fill = ''; // Reset to default fill color
+        ledPath.style.filter = 'none'; // Remove any glow effects
+      }
+    }
+  }
+}
 
   initialize() {
     this.epoch = new Date().getTime();
@@ -795,7 +820,9 @@ writeRGBLEDs(pin: number, buffer: Uint8Array): void {
     this.radio.boardStopped();
     this.dataLogging.boardStopped();
     this.serialInputBuffer.length = 0;
-
+   
+    // Reset RGB LEDs state
+    this.resetRGBLEDs();
     // Nofify of the state resets.
     this.notifications.onStateChange(this.getState());
   }
