@@ -147,7 +147,11 @@ mergeInto(LibraryManager.library, {
     /** @type {number} */ buf,
     /** @type {number} */ len
   ) {
-    const buffer = new Uint8Array(Module.HEAPU8.buffer, buf, len);
+    // Create buffer by reading bytes individually using getValue
+    const buffer = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      buffer[i] = getValue(buf + i, 'i8');
+    }
     Module.board.writeRGBLEDs(pin, buffer);
   },
 
