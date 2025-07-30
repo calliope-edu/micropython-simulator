@@ -3,10 +3,29 @@ on:
   pull_request:
     types: [opened]
 jobs:
-  pr-url:
+  pr-build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    env:
+      AWS_DEFAULT_REGION: eu-central-1
     steps:
-      - uses: microbit-foundation/action-pr-url-template@v0.1.2
+      - uses: actions/checkout@v3
+      - name: Configure node
+        uses: actions/setup-node@v3
         with:
-          uri-template: "https://review-python-simulator.usermbit.org/{branch}/"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: 14.x
+          cache: "npm"
+          registry-url: "https://npm.pkg.github.com"
+      - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm install --no-save @calliope-edu/website-deploy-aws-config # @microbit-foundation/website-deploy-aws@0.3.0 @microbit-foundation/website-deploy-aws-config@0.7.1 @microbit-foundation/circleci-npm-package-versioner@1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node ./bin/print-ci-env.js >> $GITHUB_ENV
+      - run: node ./bin/print-ci-env.js
+      - run: node ./bin/print-ci-env-public-url.js >> $GITHUB_ENV
+      - run: node ./bin/print-ci-env-public-url.js
+      - run: ./ci-build.sh

@@ -142,6 +142,19 @@ mergeInto(LibraryManager.library, {
     return Module.board.pins[pin].setAnalogPeriodUs(period);
   },
 
+  mp_js_hal_pin_write_ws2812: function (
+    /** @type {number} */ pin,
+    /** @type {number} */ buf,
+    /** @type {number} */ len
+  ) {
+    // Create buffer by reading bytes individually using getValue
+    const buffer = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      buffer[i] = getValue(buf + i, 'i8');
+    }
+    Module.board.writeRGBLEDs(pin, buffer);
+  },
+
   mp_js_hal_display_get_pixel: function (
     /** @type {number} */ x,
     /** @type {number} */ y

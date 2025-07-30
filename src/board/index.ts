@@ -24,6 +24,7 @@ import {
   MICROBIT_HAL_PIN_P16,
   MICROBIT_HAL_PIN_P19,
   MICROBIT_HAL_PIN_P20,
+  MICROBIT_HAL_PIN_RGB,
 } from "./constants";
 import * as conversions from "./conversions";
 import { DataLogging } from "./data-logging";
@@ -34,6 +35,7 @@ import { Pin, StubPin, TouchPin } from "./pins";
 import { Radio } from "./radio";
 import { RangeSensor, State } from "./state";
 import { ModuleWrapper } from "./wasm";
+import { writeRGBLEDs, resetRGBLEDs } from "./rgbleds";
 
 enum StopKind {
   /**
@@ -173,7 +175,7 @@ export class Board {
         onChange
       ),
     ];
-    this.pins = Array(33);
+    this.pins = Array(36);
     this.pins[MICROBIT_HAL_PIN_FACE] = new TouchPin(
       "pinLogo",
       {
@@ -201,6 +203,7 @@ export class Board {
     this.pins[MICROBIT_HAL_PIN_P16] = new StubPin("pin16");
     this.pins[MICROBIT_HAL_PIN_P19] = new StubPin("pin19");
     this.pins[MICROBIT_HAL_PIN_P20] = new StubPin("pin20");
+    this.pins[MICROBIT_HAL_PIN_RGB] = new StubPin("pinRGB");
 
     this.audio = new Audio();
     this.temperature = new RangeSensor("temperature", -5, 50, 21, "°C");
@@ -686,6 +689,15 @@ export class Board {
     return this.module.writeRadioRxBuffer(packet);
   }
 
+  // Calliope RGB Simulator
+  writeRGBLEDs(pin: number, buffer: Uint8Array): void {
+    writeRGBLEDs(this.svg, pin, buffer);
+  }
+
+  resetRGBLEDs(){
+    resetRGBLEDs(this.svg);
+  }
+  
   initialize() {
     this.epoch = new Date().getTime();
     this.serialInputBuffer.length = 0;
@@ -702,6 +714,9 @@ export class Board {
     this.radio.boardStopped();
     this.dataLogging.boardStopped();
     this.serialInputBuffer.length = 0;
+   
+    // Reset RGB LEDs state
+    this.resetRGBLEDs();
 
     // Nofify of the state resets.
     this.notifications.onStateChange(this.getState());

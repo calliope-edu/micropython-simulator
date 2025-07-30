@@ -11,5 +11,6 @@ global {
   declare function UTF8ToString(ptr: number, len?: number);
   declare function stringToUTF8(s: string, buf: number, len: number);
   declare function lengthBytesUTF8(s: string);
+  declare function getValue(ptr: number, type: string): number;
   declare function mergeInto(library: any, functions: Record<string, function>);
 }
