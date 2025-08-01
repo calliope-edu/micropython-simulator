@@ -1,7 +1,8 @@
 name: "pr-url"
 on:
+  push:
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened]
 jobs:
   pr-build:
     runs-on: ubuntu-latest
