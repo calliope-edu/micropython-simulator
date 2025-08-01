@@ -276,20 +276,20 @@ Emscripten. It provides a simulated micro:bit (including REPL) in the browser.
 
 To build, first fetch the submodules (don't use recursive fetch):
 
-    $ git submodule update --init lib/micropython-microbit
-    $ git -C lib/micropython-microbit submodule update --init lib/micropython
+    git submodule update --init lib/micropython-microbit
+    git -C lib/micropython-microbit submodule update --init lib/micropython
 
 Then run (from this top-level directory):
 
-    $ make
+    make
 
 Once it is built the pages in build/ need to be served, e.g. via:
 
-    $ npx serve build
+    npx serve build
 
 View at http://localhost:3000/demo.html
 
-    $ (cd build && python -m http.server)
+    (cd build && python -m http.server)
 
 View at http://localhost:8000/demo.html
 

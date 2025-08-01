@@ -1,3 +1,4 @@
 [submodule "lib/micropython-microbit"]
 	path = lib/micropython-microbit
 	url = https://github.com/calliope-edu/micropython-calliope-mini-v3.git
+	branch = master
