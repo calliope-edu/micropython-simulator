@@ -2,8 +2,8 @@
 set -euxo pipefail
 
 # Submodules
-git submodule update --init lib/micropython-microbit
-git -C lib/micropython-microbit submodule update --init lib/micropython
+git submodule update --init lib/micropython-calliope-mini-v3
+git -C lib/micropython-calliope-mini-v3 submodule update --init lib/micropython
 
 # Emscripten
 VERSION="3.1.25"
@@ -14,3 +14,4 @@ git clone https://github.com/emscripten-core/emsdk.git -b $VERSION ~/.emsdk
 source ~/.emsdk/emsdk_env.sh
 
 npm run test && npm run build
+micropython-calliope-mini-v3

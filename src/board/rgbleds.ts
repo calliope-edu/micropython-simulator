@@ -23,6 +23,9 @@
                 if (g == r && g == b)
                   fixedlightness = 100; // Use 100% lightness in case led color is 'white'
                 
+                if (g == r && g == b && g == 0)
+                  fixedlightness = 30; // Use 10% lightness when rgb led is off
+                
                 // Use HSL for the LED fill color with full saturation and lightness
                 const hslColor = `hsl(${hue}, ${saturation}%, ${fixedlightness}%)`; 
                 ledPath.style.fill = hslColor;
