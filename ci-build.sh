@@ -14,4 +14,3 @@ git clone https://github.com/emscripten-core/emsdk.git -b $VERSION ~/.emsdk
 source ~/.emsdk/emsdk_env.sh
 
 npm run test && npm run build
-micropython-calliope-mini-v3
